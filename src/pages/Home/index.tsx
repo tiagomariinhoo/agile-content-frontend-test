@@ -1,13 +1,25 @@
+import { useState } from "react"
+
 import Input from "../../components/Input"
 import "./styles.css"
 import GoogleLogo from "../../assets/google_logo.svg"
+import { useNavigate } from "react-router-dom"
 
 const Home = () => {
+  const [text, setText] = useState("")
+  const navigate = useNavigate()
+
+  const handleSearch = () => {
+    navigate('/search')
+  }
+
   return (
     <div className="home-container">
       <img src={GoogleLogo} />
-      <Input />
-      <button>Buscar</button>
+      <div className="search-container">
+        <Input text={text} setText={setText} />
+        <button onClick={handleSearch} disabled={text.length === 0} type="button" className="search-btn">Buscar</button>
+      </div>
     </div>
   )
 }
