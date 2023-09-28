@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
+  font-weight: 400;
+  min-width: 480px;
+  -webkit-font-smoothing: antialiased;
+  background: #FFF;
+}
+
+#root {
+  height: 100%;
+}
