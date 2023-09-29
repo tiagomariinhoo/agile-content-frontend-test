@@ -1,20 +1,21 @@
+import { useSearch } from "../../../../hooks/search"
 import "./styles.css"
 
-
-
 const Results = ({ results, onSelect }) => {
+  const { isShowingPreview, setIsShowingPreview } = useSearch()
 
   const handleSelect = (result) => {
     onSelect(result)
+    setIsShowingPreview(true)
   }
 
   return (
-    <ul className="results-container">
+    <ul className={`results-container ${isShowingPreview ? `is-showing-preview` : ``}`}>
       {
         results.map((result) => <>
-          <li className="result-item" onClick={() => handleSelect(result)}>
+          <li className="result-item">
             <a>{result.url}</a>
-            <h4>{result.title}</h4>
+            <h3 onClick={() => handleSelect(result)}>{result.title}</h3>
             <span>{result.description}</span>
           </li>
         </>)

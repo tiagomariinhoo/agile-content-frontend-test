@@ -3,11 +3,11 @@ import "./styles.css"
 const Preview = ({ item }) => {
 
   return (
-    <div style={{width: "100%"}}>
-      <img style={{width: "100%"}} src={item.image} />
-      <span>{item.url}</span>
-      <h4>{item.title}</h4>
-      <span>{item.description}</span>
+    <div className="preview-container">
+      <img src={item.image} />
+      <span className="preview-url">{item.url}</span>
+      <h4 className="preview-title">{item.title}</h4>
+      <span className="preview-description">{item.description}</span>
     </div>
   )
 }

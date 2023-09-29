@@ -14,9 +14,7 @@ const Search = () => {
         <Results results={data} onSelect={(result) => setSelectedItem(result)} />
         {
           selectedItem &&
-          <div className="preview-container">
-            <Preview item={selectedItem} />
-          </div>
+          <Preview item={selectedItem} />
         }
       </div>
     </div>

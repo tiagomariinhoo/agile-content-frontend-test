@@ -3,16 +3,10 @@
   align-items: start;
 
   margin-bottom: auto;
-  padding: 22px;
+  padding: 20px 80px;
 }
 
 .wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-
-.preview-container {
-  width: 40%;
-  margin-right: auto;
 }
