@@ -10,7 +10,10 @@ const Home = () => {
   const navigate = useNavigate()
 
   const handleSearch = () => {
-    navigate('/search')
+    navigate({
+      pathname: '/search',
+      search: `${text}`
+    })
   }
 
   return (

@@ -19,18 +19,19 @@ const ClearIcon = ({ onClick }) => {
 interface InputProps {
   text: string;
   setText: (value: string) => void;
+  onKeyPress?: (evt: any) => void;
 }
 
-const Input: React.FC<InputProps> = ({ text, setText }) => {
+const Input: React.FC<InputProps> = ({ text, setText, onKeyPress, ...props }) => {
 
   const handleClearText = () => {
     setText("")
   }
 
   return (
-    <div className="input-container">
+    <div className="input-container" {...props}>
       <SearchIcon />
-      <input value={text} onChange={(evt) => setText(evt.currentTarget.value)}/>
+      <input value={text} onKeyDown={onKeyPress} onChange={(evt) => setText(evt.currentTarget.value)}/>
       {
         text.length > 0 &&
         <ClearIcon onClick={handleClearText}/>
