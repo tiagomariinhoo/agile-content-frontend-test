@@ -6,7 +6,7 @@ const getUrl = () => faker.internet.url();
 const getText = () => faker.lorem.sentences();
 const getTitle = type => faker.animal[type]();
 
-const data = [...new Array(5)].map((item, index) => {
+const data = [...new Array(100)].map((item, index) => {
   const type = getType();
   return (
     {

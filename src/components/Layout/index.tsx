@@ -32,7 +32,7 @@ const Header = () => {
     if (evt.key === 'Enter') {
       navigate({
         pathname: '/search',
-        search: `${text}`
+        search: `?q=${text}`
       })
       // Trigger search function
     }

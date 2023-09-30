@@ -1,7 +1,8 @@
 import { useSearch } from "../../../../hooks/search"
 import "./styles.css"
 
-const Results = ({ results, onSelect }) => {
+const 
+Results = ({ results, onSelect }) => {
   const { isShowingPreview, setIsShowingPreview } = useSearch()
 
   const handleSelect = (result) => {
@@ -12,13 +13,12 @@ const Results = ({ results, onSelect }) => {
   return (
     <ul className={`results-container ${isShowingPreview ? `is-showing-preview` : ``}`}>
       {
-        results.map((result) => <>
-          <li className="result-item">
+        results.map((result, index) => 
+        <li key={`result-${index}`} className="result-item">
             <a>{result.url}</a>
             <h3 onClick={() => handleSelect(result)}>{result.title}</h3>
             <span>{result.description}</span>
-          </li>
-        </>)
+          </li>)
       }
     </ul>
   )

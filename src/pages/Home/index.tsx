@@ -12,7 +12,7 @@ const Home = () => {
   const handleSearch = () => {
     navigate({
       pathname: '/search',
-      search: `${text}`
+      search: `?q=${text}`
     })
   }
 
