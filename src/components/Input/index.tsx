@@ -19,7 +19,7 @@ const ClearIcon = ({ onClick }) => {
 interface InputProps {
   text: string;
   setText: (value: string) => void;
-  onKeyPress?: (evt: any) => void;
+  onKeyPress?: (evt) => void;
 }
 
 const Input: React.FC<InputProps> = ({ text, setText, onKeyPress, ...props }) => {

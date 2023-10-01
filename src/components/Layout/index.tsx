@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import './styles.css'
 
@@ -12,17 +12,23 @@ import Input from '../Input'
 
 const Header = () => {
   const location = useLocation()
-  const [text, setText] = useState("")
+  const [text, setText] = useState<string>('')
   const navigate = useNavigate()
-
   const isSearchPage = useMemo(() => {
     if (location.pathname === '/search') return true
     return false
   }, [location.pathname])
 
+  useEffect(() => {
+    const query = new URLSearchParams(location.search).get('q')
+    if (query) {
+      setText(query)
+    }
+  }, [location])
+
+
   const handleMainPage = () => {
     setText("")
-
     navigate({
       pathname: '/'
     })
@@ -34,7 +40,6 @@ const Header = () => {
         pathname: '/search',
         search: `?q=${text}`
       })
-      // Trigger search function
     }
   }
 

@@ -12,7 +12,7 @@ const Preview: React.FC<PreviewProps> = ({ result }) => {
   }
 
   return (
-    <div className="preview-modal" onClick={() => console.log('onClick outside')}>
+    <div className="preview-modal">
       <div className="preview-modal-content" onClick={handleClickContent}>
         <img src={result.image} />
         <span className="preview-url">{result.url}</span>

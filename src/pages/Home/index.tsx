@@ -1,9 +1,9 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import "./styles.css"
 
 import Input from "../../components/Input"
-import "./styles.css"
 import GoogleLogo from "../../assets/google_logo.svg"
-import { useNavigate } from "react-router-dom"
 
 const Home = () => {
   const [text, setText] = useState("")
@@ -16,12 +16,18 @@ const Home = () => {
     })
   }
 
+  const handlePressEnter = (evt) => {
+    if (evt.key === 'Enter') {
+      handleSearch()
+    }
+  }
+
   return (
     <div className="home-container">
       <img src={GoogleLogo} />
       <div className="search-container">
-        <Input text={text} setText={setText} />
-        <button onClick={handleSearch} disabled={text.length === 0} type="button" className="search-btn">Buscar</button>
+        <Input text={text} setText={setText} onKeyPress={handlePressEnter} />
+        <button className="search-btn" onClick={handleSearch} disabled={text.length === 0} type="button" >Buscar</button>
       </div>
     </div>
   )

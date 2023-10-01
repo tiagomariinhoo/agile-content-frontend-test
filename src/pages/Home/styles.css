@@ -4,7 +4,7 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  
+
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -22,7 +22,7 @@
   width: 100%;
 }
 
-button {
+.search-btn {
   height: 36px;
   min-width: 54px;
   padding: 0 16px;

@@ -3,7 +3,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Router from './Router'
 import { AppProvider } from './hooks'
 
-function App() {
+const App = () => {
   return (
     <AppProvider>
       <BrowserRouter>
