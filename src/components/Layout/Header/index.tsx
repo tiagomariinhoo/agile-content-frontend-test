@@ -7,7 +7,7 @@ import GoogleLogo from "../../../assets/google_logo.svg"
 import "./styles.css"
 
 const Header = () => {
-  const [ text, setText ] = useState("")
+  const [text, setText] = useState("")
   const location = useLocation()
   const navigate = useNavigate()
   const isSearchPage = useMemo(() => {
@@ -37,7 +37,7 @@ const Header = () => {
       })
     }
   }
-  
+
   const handleChange = (evt) => {
     setText(evt.currentTarget.value)
   }
@@ -46,12 +46,12 @@ const Header = () => {
     <header>
       {
         !isSearchPage ?
-        <span><strong>Agile Content</strong> Frontend test</span>
-        :
-        <div style={{display: "flex", alignItems: "center"}}>
-          <img onClick={handleMainPage} style={{maxHeight: 30, marginRight: 18, cursor: 'pointer'}} src={GoogleLogo} />
-          <Input style={{minHeight: 30}} value={text} onKeyPress={handlePressEnter} onChange={handleChange}/>
-        </div>
+          <span><strong>Agile Content</strong> Frontend test</span>
+          :
+          <div className='left-container'>
+            <img className='google-logo' onClick={handleMainPage} src={GoogleLogo} />
+            <Input style={{ minHeight: 30 }} value={text} onKeyPress={handlePressEnter} onChange={handleChange} />
+          </div>
       }
       <div className="right-container">
         <div className="icon-wrap">

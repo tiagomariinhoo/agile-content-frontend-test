@@ -22,6 +22,11 @@
   width: 100%;
 }
 
+.input-wrapper {
+  max-width: 584px;
+  width: 100%;
+}
+
 .search-btn {
   height: 36px;
   min-width: 54px;

@@ -30,7 +30,9 @@ const Home = () => {
     <div className="home-container">
       <img src={GoogleLogo} />
       <div className="search-container">
-        <Input onChange={handleChange} onKeyPress={handlePressEnter} />
+        <div className="input-wrapper">
+          <Input onChange={handleChange} onKeyPress={handlePressEnter} />
+        </div>
         <button className="search-btn" onClick={handleSearch} disabled={text.length === 0} type="button" >Buscar</button>
       </div>
     </div>

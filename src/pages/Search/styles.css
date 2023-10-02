@@ -5,6 +5,10 @@
 
   margin-bottom: auto;
   padding: 20px 120px;
+
+  @media (max-width: 1254px) {
+    padding: 20px 60px;
+  }
 }
 
 .wrapper {

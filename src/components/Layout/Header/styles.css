@@ -7,6 +7,11 @@ header {
   color: #4d5156;
   border-bottom: 1px solid #dfe1e5;
   padding: 0px 24px;
+
+  
+  @media (max-width: 960px) {
+    justify-content: start;
+  }
 }
 
 .icon-wrap {
@@ -39,8 +44,40 @@ svg {
   fill: currentColor;
 }
 
+.google-logo {
+  max-height: 30px;
+  margin-right: 18px;
+  cursor: pointer;
+  
+  @media (max-width: 540px) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.left-container {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  
+  @media (max-width: 960px) {
+    width: 100%;
+  }
+
+  @media (max-width: 540px) {
+    flex-direction: column;
+    padding: 0.7rem 0;
+    align-items: start;
+  }
+}
+
 .right-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 1rem;
+
+  
+  @media (max-width: 540px) {
+    display: none;
+  }
 }
