@@ -7,8 +7,8 @@
     }
   }
 
-  .results-container>li+li {
-    margin-top: 1rem;
+  .results-container > li + li {
+    margin-top: 1.5rem;
   }
 
   .result-item {

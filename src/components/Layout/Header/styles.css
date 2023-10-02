@@ -76,7 +76,12 @@ svg {
   justify-content: center;
   margin-left: 1rem;
 
-  
+  @media(max-width: 960px) {
+    margin-left: auto;
+  }
+}
+
+.is-search-page {
   @media (max-width: 540px) {
     display: none;
   }
