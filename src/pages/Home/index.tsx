@@ -22,8 +22,8 @@ const Home = () => {
     }
   }
 
-  const handleChange = (evt) => {
-    setText(evt.currentTarget.value)
+  const handleChange = (value) => {
+    setText(value)
   }
 
   return (
@@ -31,7 +31,7 @@ const Home = () => {
       <img src={GoogleLogo} />
       <div className="search-container">
         <div className="input-wrapper">
-          <Input onChange={handleChange} onKeyPress={handlePressEnter} />
+          <Input value="" onChange={handleChange} onKeyPress={handlePressEnter} />
         </div>
         <button className="search-btn" onClick={handleSearch} disabled={text.length === 0} type="button" >Buscar</button>
       </div>
