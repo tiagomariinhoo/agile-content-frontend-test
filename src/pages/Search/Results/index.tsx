@@ -4,17 +4,16 @@ import "./styles.css"
 interface ResultProps {
   results: Result[];
   onSelect: (value: Result) => void;
-  selectedItem: Result | null;
 }
 
-const Results: React.FC<ResultProps> = ({ results, onSelect, selectedItem }) => {
+const Results: React.FC<ResultProps> = ({ results, onSelect }) => {
   const handleSelect = (result: Result) => {
     onSelect(result)
   }
 
   return (
     <>
-      <ul className={`results-container ${selectedItem ? `is-showing-preview` : ``}`}>
+      <ul className={`results-container`}>
         {
           results.map((result, index) =>
             <li key={`result-${index}`} className="result-item">

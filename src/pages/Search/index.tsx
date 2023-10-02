@@ -17,8 +17,6 @@ const Search = () => {
   const location = useLocation()
   const query = new URLSearchParams(location.search).get('q')
 
-
-
   const fetchData = async () => {
     await data().then((response) => {
       const animals: Result[] = response.filter((animal: Result) => animal.type === query || animal.title === query)
@@ -50,7 +48,7 @@ const Search = () => {
                   onSelect={(result: Result) => setSelectedItem(result)} />
                 {
                   selectedItem &&
-                  <Preview result={selectedItem} setSelectedItem/>
+                  <Preview result={selectedItem} onSelectItem={setSelectedItem}/>
                 }
               </>
         }

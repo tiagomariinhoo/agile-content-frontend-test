@@ -5,10 +5,10 @@ import { Result } from '../../../types/index'
 
 interface PreviewProps {
   result: Result;
-  setSelectedItem: (value: Result | null) => void;
+  onSelectItem: (value: Result | null) => void;
 }
 
-const Preview: React.FC<PreviewProps> = ({ result, setSelectedItem }) => {
+const Preview: React.FC<PreviewProps> = ({ result, onSelectItem }) => {
   const [loaded, setLoaded] = useState(false)
 
   const handleClickContent = (evt) => {
@@ -16,7 +16,7 @@ const Preview: React.FC<PreviewProps> = ({ result, setSelectedItem }) => {
   }
 
   const handleClickOutside = () => {
-    setSelectedItem(null)
+    onSelectItem(null)
   }
 
   return (

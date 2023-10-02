@@ -3,10 +3,6 @@
     margin-right: auto;
   }
 
-  .is-showing-preview {
-    width: 50%;
-  }
-
   .results-container>li+li {
     margin-top: 1rem;
   }
