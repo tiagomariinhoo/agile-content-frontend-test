@@ -1,27 +1,29 @@
 import { useState, useEffect } from 'react'
 
 import { Result, SearchState } from '../../types'
-import { useSearch } from '../../hooks/search'
 import LoadingState from './LoadingState'
 import data from '../../services/api'
 import Results from './Results'
 import Preview from './Preview'
 import EmptyState from './EmptyState'
 import "./styles.css"
+import { useLocation } from 'react-router-dom'
 
 const Search = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [results, setResults] = useState<Result[]>([])
   const [selectedItem, setSelectedItem] = useState<Result | null>()
-  const [previousText, setPreviousText] = useState('')
-  const { text } = useSearch()
+  const [previousText, setPreviousText] = useState<string | null>('')
+  const location = useLocation()
+  const query = new URLSearchParams(location.search).get('q')
+
 
 
   const fetchData = async () => {
     await data().then((response) => {
-      const animals: Result[] = response.filter((animal: Result) => animal.type === text || animal.title === text)
+      const animals: Result[] = response.filter((animal: Result) => animal.type === query || animal.title === query)
       setResults(animals)
-      setPreviousText(text)
+      setPreviousText(query)
       setIsLoading(false)
     })
   }
@@ -30,24 +32,25 @@ const Search = () => {
     setIsLoading(true)
     setSelectedItem(null)
     fetchData()
-  }, [text])
+  }, [location])
 
   return (
     <div className="search-page-container">
       <div className="wrapper">
         {
-          (isLoading || previousText != text) ?
+          (isLoading || previousText != query) ?
             <LoadingState /> :
-            (text === "" || results.length == 0) ?
+            (query === "" || results.length == 0) ?
               <EmptyState
-                state={text === "" ? SearchState.INVALID : SearchState.EMPTY} /> :
+                state={query === "" ? SearchState.INVALID : SearchState.EMPTY} 
+                text={query}/> :
               <>
                 <Results
                   results={results}
                   onSelect={(result: Result) => setSelectedItem(result)} />
                 {
                   selectedItem &&
-                  <Preview result={selectedItem} />
+                  <Preview result={selectedItem} setSelectedItem/>
                 }
               </>
         }

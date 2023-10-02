@@ -1,13 +1,12 @@
-import { useSearch } from "../../../hooks/search";
 import { SearchState } from "../../../types"
 import "./styles.css"
 
 interface EmptyStateProps {
   state: SearchState;
+  text?: string;
 }
 
-const EmptyState:React.FC<EmptyStateProps> = ({ state }) => {
-  const { text } = useSearch()
+const EmptyState:React.FC<EmptyStateProps> = ({ state, text }) => {
   
   return (
     <div>

@@ -4,12 +4,10 @@ import { useLocation, useNavigate } from "react-router-dom"
 import Input from '../../Input'
 import ProfilePic from "../../../assets/profile_pic.jpg"
 import GoogleLogo from "../../../assets/google_logo.svg"
-import { useSearch } from '../../../hooks/search'
 import "./styles.css"
 
 const Header = () => {
-  const { setText } = useSearch()
-  const [ currentText, setCurrentText ] = useState("")
+  const [ text, setText ] = useState("")
   const location = useLocation()
   const navigate = useNavigate()
   const isSearchPage = useMemo(() => {
@@ -21,13 +19,11 @@ const Header = () => {
     const query = new URLSearchParams(location.search).get('q')
     if (query) {
       setText(query)
-      setCurrentText(query)
     }
   }, [location])
 
 
   const handleMainPage = () => {
-    setText("")
     navigate({
       pathname: '/'
     })
@@ -35,7 +31,6 @@ const Header = () => {
 
   const handlePressEnter = (evt) => {
     if (evt.key === 'Enter') {
-      setText(evt.currentTarget.value)
       navigate({
         pathname: '/search',
         search: `?q=${evt.currentTarget.value}`
@@ -44,7 +39,7 @@ const Header = () => {
   }
   
   const handleChange = (evt) => {
-    setCurrentText(evt.currentTarget.value)
+    setText(evt.currentTarget.value)
   }
 
   return (
@@ -55,7 +50,7 @@ const Header = () => {
         :
         <div style={{display: "flex", alignItems: "center"}}>
           <img onClick={handleMainPage} style={{maxHeight: 30, marginRight: 18, cursor: 'pointer'}} src={GoogleLogo} />
-          <Input style={{minHeight: 30}} value={currentText} onKeyPress={handlePressEnter} onChange={handleChange}/>
+          <Input style={{minHeight: 30}} value={text} onKeyPress={handlePressEnter} onChange={handleChange}/>
         </div>
       }
       <div className="right-container">

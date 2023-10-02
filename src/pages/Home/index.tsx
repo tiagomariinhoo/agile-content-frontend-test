@@ -1,12 +1,12 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import "./styles.css"
 
 import Input from "../../components/Input"
 import GoogleLogo from "../../assets/google_logo.svg"
-import { useSearch } from "../../hooks/search"
 
 const Home = () => {
-  const { text, setText } = useSearch()
+  const [text, setText] = useState('')
   const navigate = useNavigate()
 
   const handleSearch = () => {

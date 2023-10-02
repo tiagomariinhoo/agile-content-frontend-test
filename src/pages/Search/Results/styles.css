@@ -1,12 +1,10 @@
   .results-container {
     width: 50%;
-    /* margin-left: auto; */
     margin-right: auto;
   }
 
   .is-showing-preview {
     width: 50%;
-    /* margin-left: auto; */
   }
 
   .results-container>li+li {

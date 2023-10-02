@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, PropsWithChildren } from 'react'
-
+//TODO: REMOVE THIS CONTEXT
+//TODO2: TRY TO MAKE AN USEFETCH HOOK
 interface SearchProps {
   isShowingPreview: boolean;
   setIsShowingPreview: (value: boolean) => void;
