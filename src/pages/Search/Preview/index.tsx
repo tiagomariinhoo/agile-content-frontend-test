@@ -1,12 +1,11 @@
 import "./styles.css"
-import { Result } from '../../../../types/index'
+import { Result } from '../../../types/index'
 
 interface PreviewProps {
   result: Result;
 }
 
 const Preview: React.FC<PreviewProps> = ({ result }) => {
-
   const handleClickContent = (evt) => {
     evt.stopPropagation()
   }

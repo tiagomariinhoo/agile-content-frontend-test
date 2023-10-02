@@ -1,8 +1,5 @@
-import React from "react"
+import React, { useState } from "react"
 import "./styles.css"
-/**
- * TODO: Refactor Input
- */
 
 const SearchIcon = () => {
   return (
@@ -17,13 +14,14 @@ const ClearIcon = ({ onClick }) => {
 }
 
 interface InputProps {
-  text: string;
-  setText: (value: string) => void;
   onKeyPress?: (evt) => void;
+  onChange?: (evt) => void;
+  value?: string;
 }
 
-const Input: React.FC<InputProps> = ({ text, setText, onKeyPress, ...props }) => {
-
+const Input: React.FC<InputProps> = ({ onKeyPress, onChange, value, ...props }) => {
+  const [text, setText] = useState('')
+  const inputRef = React.useRef(null)
   const handleClearText = () => {
     setText("")
   }
@@ -31,7 +29,7 @@ const Input: React.FC<InputProps> = ({ text, setText, onKeyPress, ...props }) =>
   return (
     <div className="input-container" {...props}>
       <SearchIcon />
-      <input value={text} onKeyDown={onKeyPress} onChange={(evt) => setText(evt.currentTarget.value)}/>
+      <input ref={inputRef} value={value} onKeyDown={onKeyPress} onChange={onChange}/>
       {
         text.length > 0 &&
         <ClearIcon onClick={handleClearText}/>

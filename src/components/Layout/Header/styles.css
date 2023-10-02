@@ -1,0 +1,46 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  color: #4d5156;
+  border-bottom: 1px solid #dfe1e5;
+  padding: 0px 24px;
+}
+
+.icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+  margin-right: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-wrap:hover {
+  background-color: #f2f2f2;
+}
+
+.profile-picture {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+svg {
+  width: 25px;
+  color: #5f6368;
+  opacity: 1;
+  fill: currentColor;
+}
+
+.right-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

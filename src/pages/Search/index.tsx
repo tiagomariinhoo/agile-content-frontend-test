@@ -1,63 +1,55 @@
-import { useState, useMemo, useEffect } from 'react'
-import { useLocation } from "react-router-dom"
-import "./styles.css"
+import { useState, useEffect } from 'react'
+
+import { Result, SearchState } from '../../types'
+import { useSearch } from '../../hooks/search'
+import LoadingState from './LoadingState'
 import data from '../../services/api'
-import Results from './components/Results'
-import Preview from './components/Preview'
-import { Result } from '../../types'
-import LoadingState from './components/LoadingState'
-
-
-// Refactor to use separated components and useContext to get the current search text
-const EmptyState = () => {
-  return (
-    <h1>Empty State</h1>
-  )
-}
-
-const InvalidState = () => {
-  return (
-    <h1>Invalid State</h1>
-  )
-}
+import Results from './Results'
+import Preview from './Preview'
+import EmptyState from './EmptyState'
+import "./styles.css"
 
 const Search = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [results, setResults] = useState<Result[]>([])
   const [selectedItem, setSelectedItem] = useState<Result | null>()
-  const location = useLocation()
-  const query = new URLSearchParams(location.search).get('q')?.toLocaleLowerCase()
+  const [previousText, setPreviousText] = useState('')
+  const { text } = useSearch()
 
-  const fetchData = () => {
-    setIsLoading(true)
-    setTimeout(() => {
+
+  const fetchData = async () => {
+    await data().then((response) => {
+      const animals: Result[] = response.filter((animal: Result) => animal.type === text || animal.title === text)
+      setResults(animals)
+      setPreviousText(text)
       setIsLoading(false)
-      setResults(data.filter((animal) => animal.type === query || animal.title === query))
-    }, 1000)
+    })
   }
 
   useEffect(() => {
+    setIsLoading(true)
     setSelectedItem(null)
     fetchData()
-  }, [location, query])
+  }, [text])
 
   return (
     <div className="search-page-container">
       <div className="wrapper">
         {
-          isLoading ?
+          (isLoading || previousText != text) ?
             <LoadingState /> :
-            query === "" ?
-              <InvalidState /> :
-              results.length == 0 ?
-                <EmptyState /> :
-                <>
-                  <Results results={results} onSelect={(result: Result) => setSelectedItem(result)} />
-                  {
-                    selectedItem &&
-                    <Preview result={selectedItem} />
-                  }
-                </>
+            (text === "" || results.length == 0) ?
+              <EmptyState
+                state={text === "" ? SearchState.INVALID : SearchState.EMPTY} /> :
+              <>
+                <Results
+                  results={results}
+                  onSelect={(result: Result) => setSelectedItem(result)} />
+                {
+                  selectedItem &&
+                  <Preview result={selectedItem} />
+                }
+              </>
         }
       </div>
     </div>
