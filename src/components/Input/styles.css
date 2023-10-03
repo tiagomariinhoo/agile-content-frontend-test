@@ -27,16 +27,17 @@ svg {
 
 .clear-btn {
   background: none;
-	/* color: inherit; */
+	color: inherit;
 	border: none;
-	/* padding: 0; */
-	/* font: inherit; */
+	padding: 0;
+	font: inherit;
 	cursor: pointer;
-	/* outline: inherit; */
+	outline: inherit;
   height: 20px;
   width: 20px;
-  /* display: flex; */
+  display: flex;
   align-self: center;
+  margin-left: auto;
 }
 
 .clear-btn:hover {
@@ -47,8 +48,4 @@ svg {
 .clear-btn:hover:enabled {
   box-shadow: none;
   border: none;
-}
-
-.hidden {
-  display: none;
 }

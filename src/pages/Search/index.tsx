@@ -15,7 +15,7 @@ const Search = () => {
   const [selectedItem, setSelectedItem] = useState<Result | null>()
   const [previousText, setPreviousText] = useState<string | null>('')
   const location = useLocation()
-  const query = new URLSearchParams(location.search).get('q')
+  const query = new URLSearchParams(location.search).get('q')?.toLowerCase()
 
   const fetchData = async () => {
     await data().then((response) => {
