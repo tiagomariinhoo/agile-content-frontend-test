@@ -1,27 +1,35 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Agile Content Frontend test - Tiago Marinho
 
-Currently, two official plugins are available:
+What would you have done differently if you had more time? Why?
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I would have implemented a dark mode like I did in my portfolio: https://tiagomarinho.netlify.app/ (but I made it using Styled Components and I was advised not to use it here).
 
-## Expanding the ESLint configuration
+I would have written more tests for some different flows.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+I would have implemented an "infinite scroll". I could load more than 100 animals as data and use this functionality.
 
-- Configure the top-level `parserOptions` property like this:
+I would have implemented an algorithm to help the user to rewrite the search suggesting an existing word close to the one he wrote.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+I also would implement a Skeleton Loading for the Preview Card (when the user taps on a title to open a preview).
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Notes:
+
+I implemented some small features that could help the user and the tests.
+
+- If the user is on the '/search' page, they canclick on the Google logo to return to the home page.
+- Since the <img> takes a while to loading, the modal preview is only shown when the image is completely loaded.
+- You can change the setTimeout time in './api/animals.ts' to see the skeleton loading animation.
+
+Instructions to run:
+
+npm install
+
+npm run dev (to run the project)
+
+npm run test (to run the tests)
+
+
+## Authors
+
+- [@tiagomariinhoo](https://www.github.com/tiagomariinhoo)
