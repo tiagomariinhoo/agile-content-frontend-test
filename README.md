@@ -3,15 +3,13 @@
 
 What would you have done differently if you had more time? Why?
 
-I would have implemented a dark mode like I did in my portfolio: https://tiagomarinho.netlify.app/ (but I made it using Styled Components and I was advised not to use it here).
+I would have implemented a dark mode like I did in my portfolio: https://tiagomarinho.netlify.app/ (but I made it using Styled Components and I was advised not to use it here). Because dark mode became popular and it prevents the user to use a plugin just for it.
 
-I would have written more tests for some different flows.
+I would have implemented an "infinite scroll". I could load more than 100 animals as data and use this functionality. Because it's very useful when you have this kind of application that will load a lot of data.
 
-I would have implemented an "infinite scroll". I could load more than 100 animals as data and use this functionality.
+I would have implemented an algorithm to help the user to rewrite the search suggesting an existing word close to the one he wrote. Because I've never worked with this kind of feature and it would be great to learn.
 
-I would have implemented an algorithm to help the user to rewrite the search suggesting an existing word close to the one he wrote.
-
-I also would implement a Skeleton Loading for the Preview Card (when the user taps on a title to open a preview).
+I also would implement a Skeleton Loading for the Preview Card (when the user taps on a title to open a preview), to give a better UI experience.
 
 Notes:
 
