@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useState } from 'react'
 
-import "./styles.css"
+import './styles.css'
 import { Result } from '../../../types/index'
 
 interface PreviewProps {
@@ -20,12 +20,12 @@ const Preview: React.FC<PreviewProps> = ({ result, onSelectItem }) => {
   }
 
   return (
-    <div className="preview-modal" onClick={handleClickOutside} style={{ display: loaded ? 'block' : 'none' }}>
-      <div className="preview-modal-content" onClick={handleClickContent}>
+    <div className='preview-modal' onClick={handleClickOutside} style={{ display: loaded ? 'block' : 'none' }}>
+      <div className='preview-modal-content' onClick={handleClickContent}>
         <img src={result.image} onLoad={() => setLoaded(true)} />
-        <span className="preview-url">{result.url}</span>
-        <h4 className="preview-title">{result.title}</h4>
-        <span className="preview-description">{result.description}</span>
+        <span className='preview-url'>{result.url}</span>
+        <h4 className='preview-title'>{result.title}</h4>
+        <span className='preview-description'>{result.description}</span>
       </div>
     </div>
   )

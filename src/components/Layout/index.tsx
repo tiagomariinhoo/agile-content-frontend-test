@@ -5,7 +5,7 @@ import './styles.css'
 
 const Layout = () => {
   return (
-    <div className="layout-container">
+    <div className='layout-container'>
       <Header />
       <Outlet />
       <Footer />

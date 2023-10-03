@@ -1,5 +1,5 @@
-import { Result } from "../../../types"
-import "./styles.css"
+import { Result } from '../../../types'
+import './styles.css'
 
 interface ResultProps {
   results: Result[];
@@ -12,21 +12,19 @@ const Results: React.FC<ResultProps> = ({ results, onSelect }) => {
   }
 
   return (
-    <>
-      <ul className={`results-container`}>
-        {
-          results.map((result, index) =>
-            <li key={`result-${index}`} className="result-item">
-              <>
-                <a>{result.url}</a>
-                <h3 onClick={() => handleSelect(result)}>{result.title}</h3>
-                <span>{result.description}</span>
-              </>
-            </li>
-          )
-        }
-      </ul>
-    </>
+    <ul className={`results-container`}>
+      {
+        results.map((result, index) =>
+          <li key={`result-${index}`} className='result-item'>
+            <>
+              <a>{result.url}</a>
+              <h3 onClick={() => handleSelect(result)}>{result.title}</h3>
+              <span>{result.description}</span>
+            </>
+          </li>
+        )
+      }
+    </ul>
   )
 }
 

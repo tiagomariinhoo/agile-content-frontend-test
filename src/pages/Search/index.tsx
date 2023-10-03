@@ -6,7 +6,7 @@ import data from '../../services/api'
 import Results from './Results'
 import Preview from './Preview'
 import EmptyState from './EmptyState'
-import "./styles.css"
+import './styles.css'
 import { useLocation } from 'react-router-dom'
 
 const Search = () => {
@@ -33,14 +33,14 @@ const Search = () => {
   }, [location])
 
   return (
-    <div className="search-page-container">
-      <div className="wrapper">
+    <div className='search-page-container'>
+      <div className='search-content'>
         {
           (isLoading || previousText != query) ?
             <LoadingState /> :
-            (query === "" || results.length == 0) ?
+            (query === '' || results.length == 0) ?
               <EmptyState
-                state={query === "" ? SearchState.INVALID : SearchState.EMPTY} 
+                state={query === '' ? SearchState.INVALID : SearchState.EMPTY} 
                 text={query}/> :
               <>
                 <Results

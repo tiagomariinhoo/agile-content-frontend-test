@@ -1,5 +1,5 @@
-import { SearchState } from "../../../types"
-import "./styles.css"
+import { SearchState } from '../../../types'
+import './styles.css'
 
 interface EmptyStateProps {
   state: SearchState;
