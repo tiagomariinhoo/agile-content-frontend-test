@@ -33,13 +33,15 @@ const Header = () => {
     if (evt.key === 'Enter') {
       navigate({
         pathname: '/search',
-        search: `?q=${evt.currentTarget.value}`
+        search: `?q=${evt.target.value}`
       })
     }
   }
 
   const handleChange = (evt) => {
-    setText(evt.currentTarget.value)
+    if (evt && evt.target) {
+      setText(evt.target.value)
+    }
   }
 
   return (

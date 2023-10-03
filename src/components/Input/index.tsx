@@ -42,8 +42,10 @@ const Input: React.FC<InputProps> = ({ onKeyPress, onChange, value, ...props }) 
   }, [value])
 
   const handleChange = (evt) => {
-    setText(evt.target.value)
-    onChange(evt.target.value)
+    if (evt && evt.target) {
+      setText(evt.target.value)
+      onChange(evt.target.value)
+    }
   }
 
   return (
