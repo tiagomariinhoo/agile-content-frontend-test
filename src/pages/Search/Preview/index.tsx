@@ -22,7 +22,10 @@ const Preview: React.FC<PreviewProps> = ({ result, onSelectItem }) => {
   return (
     <div className={`preview-modal ${loaded ? `loaded` : ``}`} onClick={handleClickOutside}>
       <div className='preview-modal-content' onClick={handleClickContent}>
-        <img src={result.image} onLoad={() => setLoaded(true)} />
+        <img
+          src={result.image}
+          onLoad={() => setLoaded(true)}
+          alt={result.type} />
         <span className='preview-url'>{result.url}</span>
         <h4 className='preview-title'>{result.title}</h4>
         <span className='preview-description'>{result.description}</span>
