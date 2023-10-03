@@ -21,7 +21,7 @@ input {
   max-width: 580px;
 }
 
-svg {
+.input-container > svg {
   width: 20px;
 }
 

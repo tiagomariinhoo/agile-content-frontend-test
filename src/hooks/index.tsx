@@ -1,10 +1,10 @@
 import { PropsWithChildren } from 'react'
-import { SearchProvider } from "./search"
+import { ApiProvider } from './useApi'
 
 export const AppProvider: React.FC<PropsWithChildren> = ({ children }) => {
   return (
-    <SearchProvider>
+    <ApiProvider>
       {children}
-    </SearchProvider>
+    </ApiProvider>
   )
 }

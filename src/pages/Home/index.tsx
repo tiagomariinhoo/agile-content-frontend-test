@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import './styles.css'
 
 import Input from '../../components/Input'
 import GoogleLogo from '../../assets/google_logo.svg'
+import './styles.css'
 
 const Home = () => {
   const [text, setText] = useState('')

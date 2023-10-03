@@ -54,7 +54,6 @@ const Input: React.FC<InputProps> = ({ onKeyPress, onChange, value, ...props }) 
         onKeyDown={onKeyPress}
         onChange={handleChange}
         data-testid='input' />
-
       {
         text.length > 0 &&
         < ClearButton onClick={handleClearText} />

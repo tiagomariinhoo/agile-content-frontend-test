@@ -3,7 +3,7 @@ import './styles.css'
 
 interface EmptyStateProps {
   state: SearchState;
-  text: string | null;
+  text: string | undefined;
 }
 
 const EmptyState:React.FC<EmptyStateProps> = ({ state, text }) => {

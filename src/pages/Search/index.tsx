@@ -1,24 +1,25 @@
 import { useState, useEffect } from 'react'
-
+import { useLocation } from 'react-router-dom'
 import { Result, SearchState } from '../../types'
+import { useApi } from '../../hooks/useApi'
+
 import LoadingState from './LoadingState'
-import data from '../../services/api'
 import Results from './Results'
 import Preview from './Preview'
 import EmptyState from './EmptyState'
 import './styles.css'
-import { useLocation } from 'react-router-dom'
 
 const Search = () => {
   const [isLoading, setIsLoading] = useState(true)
   const [results, setResults] = useState<Result[]>([])
   const [selectedItem, setSelectedItem] = useState<Result | null>()
-  const [previousText, setPreviousText] = useState<string | null>('')
+  const [previousText, setPreviousText] = useState<string | undefined>('')
+  const { animals } = useApi()
   const location = useLocation()
   const query = new URLSearchParams(location.search).get('q')?.toLowerCase()
 
   const fetchData = async () => {
-    await data().then((response) => {
+    await animals.get().then((response: Result[]) => {
       const animals: Result[] = response.filter((animal: Result) => animal.type === query || animal.title === query)
       setResults(animals)
       setPreviousText(query)
