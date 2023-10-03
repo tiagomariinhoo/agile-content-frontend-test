@@ -20,6 +20,7 @@ I implemented some small features that could help the user and the tests.
 - If the user is on the '/search' page, they canclick on the Google logo to return to the home page.
 - Since the <img> takes a while to loading, the modal preview is only shown when the image is completely loaded.
 - You can change the setTimeout time in './api/animals.ts' to see the skeleton loading animation.
+- In case you have selected a item and it's showing the modal as tablet/phone mode, if you click outside the modal, it will close the modal.
 
 Instructions to run:
 
